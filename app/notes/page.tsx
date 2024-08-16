@@ -17,7 +17,7 @@ import Link from "next/link";
 export default async function Notes() {
   const supabase = createClient();
   const { data: notes, error } = await supabase.from("notes").select();
-
+  console.log(notes);
   if (error) {
     console.error("Error fetching notes:", error);
     return (
