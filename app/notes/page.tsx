@@ -37,9 +37,14 @@ export default async function Notes() {
           mb: 3,
         }}
       >
-        <Typography variant="h4" component="h1">
-          Notes
-        </Typography>
+        <Box>
+          <Typography variant="h4" component="h1">
+            Notes
+          </Typography>
+          <Typography variant="body1" component="p">
+            supabase.from("notes").select();でsupabase上のnotesテーブルからデータを取得しています。
+          </Typography>
+        </Box>
       </Box>
       {notes && notes.length > 0 ? (
         <TableContainer component={Paper}>

@@ -1,4 +1,4 @@
-import { Button, Container, Typography, Box } from "@mui/material";
+import { Button, Container, Typography, Box, Stack } from "@mui/material";
 import Link from "next/link";
 import { createClient } from "@/utils/supabase/server";
 import Header from "@/components/Header";
@@ -17,7 +17,7 @@ export default async function Index() {
 
   return (
     <Container maxWidth="lg">
-      <Box sx={{ my: 4 }}>
+      <Box sx={{ mt: 4, alignItems: "center" }}>
         <Header />
         <Typography variant="h4" component="h1" gutterBottom>
           Next steps
@@ -27,14 +27,27 @@ export default async function Index() {
         ) : (
           <Typography>Connect your Supabase project</Typography>
         )}
-        <Button
-          component={Link}
-          href="/notes"
-          variant="contained"
-          sx={{ mt: 2 }}
-        >
-          View Notes
-        </Button>
+        <Stack spacing={2} sx={{ mt: 4, alignItems: "center" }}>
+          <Button
+            component={Link}
+            href="/notes"
+            variant="contained"
+            fullWidth
+            sx={{ maxWidth: 250 }}
+          >
+            View Notes
+          </Button>
+          <Button
+            component={Link}
+            href="/supabaseauth"
+            variant="contained"
+            color="secondary"
+            fullWidth
+            sx={{ maxWidth: 250 }}
+          >
+            Try Supabase Auth
+          </Button>
+        </Stack>
       </Box>
     </Container>
   );
